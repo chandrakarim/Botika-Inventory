@@ -1,0 +1,773 @@
+{
+  "info": {
+    "_postman_id": "5bc27b22-a3be-4314-bb56-2b464d929acb",
+    "name": "Bontika Test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "16252425"
+  },
+  "item": [
+    {
+      "name": "Authencation",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"admin@mail.com\",\r\n  \"password\": \"password\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/login",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Me",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 2|csAfCNJwcfBIakm2x7Wd2jvx5aOdoufGUwoYNDpO630a6987",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/me",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "me"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Member",
+      "item": [
+        {
+          "name": "Create Member",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 1|Ha7CoDvhNf3UMizIhlvERRFjLbnrQv2DTsqrRpm14732e9c1",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Citra Moldova\",\r\n  \"position_id\": 1,\r\n  \"department_id\": 1\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/members",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "members"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Members",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 1|oXKk7QpxrrrGf6BCPijDtugQ20lfJVE4OLr7OHW7da676157",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/members",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "members"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Show Members",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 1|Ha7CoDvhNf3UMizIhlvERRFjLbnrQv2DTsqrRpm14732e9c1",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/members/2",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "members",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Members",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 1|Ha7CoDvhNf3UMizIhlvERRFjLbnrQv2DTsqrRpm14732e9c1",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Daniel Updated\",\r\n  \"position_id\": 1,\r\n  \"department_id\": 1\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/members/2",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "members",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Members",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 1|Ha7CoDvhNf3UMizIhlvERRFjLbnrQv2DTsqrRpm14732e9c1",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/members/2",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "members",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Departments",
+      "item": [
+        {
+          "name": "Create Departments",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 1|y1ZvK5dJxwRTTwUVYhDorQJggheU5vE4Gf8e0feH3ae3f3e6",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Marketing\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/departments",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "departments"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Departemns",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 2|csAfCNJwcfBIakm2x7Wd2jvx5aOdoufGUwoYNDpO630a6987",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/departments",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "departments"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Show Departments",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 2|csAfCNJwcfBIakm2x7Wd2jvx5aOdoufGUwoYNDpO630a6987",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/departments/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "departments",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Departments",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 2|csAfCNJwcfBIakm2x7Wd2jvx5aOdoufGUwoYNDpO630a6987",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/departments/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "departments",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Departments",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 2|csAfCNJwcfBIakm2x7Wd2jvx5aOdoufGUwoYNDpO630a6987",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/departments/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "departments",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Positions",
+      "item": [
+        {
+          "name": "Create Positions",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 2|csAfCNJwcfBIakm2x7Wd2jvx5aOdoufGUwoYNDpO630a6987",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Senior Software Engineer\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/positions",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "positions"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Positions",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 2|csAfCNJwcfBIakm2x7Wd2jvx5aOdoufGUwoYNDpO630a6987",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/positions",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "positions"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Show Positions",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "Update Positions",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 2|csAfCNJwcfBIakm2x7Wd2jvx5aOdoufGUwoYNDpO630a6987",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Senior Marketing\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/positions/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "positions",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Positions",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 2|csAfCNJwcfBIakm2x7Wd2jvx5aOdoufGUwoYNDpO630a6987",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/positions",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "positions"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Inventories",
+      "item": [
+        {
+          "name": "Create Inventories",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 1|oXKk7QpxrrrGf6BCPijDtugQ20lfJVE4OLr7OHW7da676157",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"inventory_code\": \"INV-005\",\r\n  \"name\": \"Macbook Pro\",\r\n  \"type\": \"Laptop\",\r\n  \"serial_number\": \"MBP001\",\r\n  \"specification\": \"M1 16GB\",\r\n  \"status\": \"baik\",\r\n  \"member_id\": 1\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/inventories",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "inventories"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Invetories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 1|oXKk7QpxrrrGf6BCPijDtugQ20lfJVE4OLr7OHW7da676157",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/inventories",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "inventories"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Show Inventories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 1|oXKk7QpxrrrGf6BCPijDtugQ20lfJVE4OLr7OHW7da676157",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/inventories/4",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "inventories",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Inventory",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 1|y1ZvK5dJxwRTTwUVYhDorQJggheU5vE4Gf8e0feH3ae3f3e6",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"inventory_code\": \"INV-001\",\r\n  \"name\": \"Macbook ProMax\",\r\n  \"type\": \"Laptop\",\r\n  \"serial_number\": \"MBP001\",\r\n  \"specification\": \"M1 16GB\",\r\n  \"status\": \"baik\",\r\n  \"member_id\": 1\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/inventories/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "inventories",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Inventory",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer 1|y1ZvK5dJxwRTTwUVYhDorQJggheU5vE4Gf8e0feH3ae3f3e6",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/inventories/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "inventories",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Analystic",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

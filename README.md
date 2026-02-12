@@ -1,59 +1,678 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📦 Management Inventaris (Laravel API + Vue SPA)
+---
+Website ini adalah sistem manajemen data inventaris perusahaan berbasis **Laravel REST API** dan **Vue.js Single Page Application (SPA)**.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi ini digunakan untuk mengelola:
 
-## About Laravel
+* Data anggota (pegawai)
+* Data inventaris barang
+* Status kondisi barang
+* Riwayat peminjaman barang
+* Upload dokumen/foto inventaris
+* Dashboard analytics inventaris
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Project ini dibuat sebagai implementasi:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+* RESTful API
+* Bearer Token Authentication
+* Relational Database Design
+* Single Page Application Architecture
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## ✨ Fitur Utama
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### 🔐 Autentikasi
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* Login menggunakan Bearer Token (Laravel Sanctum)
+* Setiap request API dilindungi autentikasi
 
-## Laravel Sponsors
+### 👥 Management Anggota
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+* Tambah anggota
+* Edit anggota
+* Hapus anggota
+* Relasi ke Departemen & Jabatan
 
-### Premium Partners
+### 📦 Management Inventaris
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+* Tambah inventaris
+* Edit inventaris
+* Hapus inventaris
+* Assign inventaris ke anggota
+* Generate kode inventaris otomatis
 
-## Contributing
+### 📎 Upload File Inventaris
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+* Multiple file upload
+* Upload foto barang
+* Upload invoice/garansi
+* Penyimpanan file menggunakan Laravel Storage
 
-## Code of Conduct
+### 📊 Dashboard Analytics
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Menampilkan:
 
-## Security Vulnerabilities
+* Total inventaris
+* Barang Baik
+* Barang Rusak
+* Barang Dilelang
+* Barang Tidak Dipakai
+* Diagram batang (bar chart)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 🧰 Teknologi yang Digunakan
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Backend
+
+* Laravel 12
+* Laravel Sanctum (Bearer Token Auth)
+* RESTful API
+* Eloquent ORM
+
+### Frontend
+
+* Vue 3 (Composition API)
+* Vue Router
+* Axios
+* TailwindCSS
+* Chart.js
+
+### Database
+
+* MySQL
+* Relational Database (3NF Normalization)
+
+---
+
+## 🏗️ Arsitektur Sistem
+
+Aplikasi menggunakan arsitektur **SPA + REST API terpisah**
+
+Frontend (Vue) ⟶ Axios ⟶ REST API (Laravel) ⟶ Database (MySQL)
+
+Keuntungan:
+
+* Frontend dan backend dapat dikembangkan terpisah
+* Lebih aman
+* Lebih scalable
+* Mudah dibuat mobile app di masa depan
+---
+
+## ✨ Fitur Utama
+
+### 1. Authentication (Bearer Token)
+
+* Login menggunakan email & password
+* Setiap request API wajib membawa token
+* Token disimpan di LocalStorage
+
+---
+
+### 2. Management Anggota
+
+Fungsi:
+
+* Tambah anggota
+* Edit anggota
+* Hapus anggota
+* List anggota
+
+Relasi:
+
+```
+Member -> Department
+Member -> Position
+```
+
+---
+
+### 3. Management Inventaris
+
+Fungsi:
+
+* Tambah data inventaris
+* Edit data inventaris
+* Hapus data inventaris
+* Assign barang ke anggota
+* Upload multiple file (foto/dokumen)
+* Generate kode inventaris otomatis
+
+Relasi:
+
+```
+Inventory -> Member
+Inventory -> InventoryFiles
+```
+
+Status barang:
+
+* baik
+* rusak
+* tidak_dipakai
+* dilelang
+
+---
+
+### 4. Upload File
+
+Inventaris mendukung:
+
+* Multiple upload
+* Foto barang
+* Dokumen pembelian
+* Invoice
+
+File disimpan di:
+
+```
+storage/app/public/inventories
+```
+
+---
+
+### 5. Dashboard Analytics
+
+Menampilkan:
+
+* Total barang
+* Barang Baik
+* Barang Rusak
+* Barang Dilelang
+* Barang Tidak Dipakai
+* Diagram Bar Chart
+
+---
+
+## 🗄️ Struktur Database (ERD Sederhana)
+
+```
+departments
+    id
+    name
+
+positions
+    id
+    name
+
+members
+    id
+    name
+    department_id
+    position_id
+
+inventories
+    id
+    inventory_code
+    name
+    type
+    serial_number
+    specification
+    status
+    member_id
+
+inventory_files
+    id
+    inventory_id
+    file_name
+    file_path
+    file_type
+    file_size
+```
+
+Relasi:
+
+* 1 Member memiliki banyak Inventaris
+* 1 Inventaris memiliki banyak File
+
+---
+## 📊 Penjelasan ERD (Entity Relationship Diagram)
+
+Sistem ini menggunakan database relasional (MySQL) yang sudah dinormalisasi untuk menghindari duplikasi data.
+
+### 1. Members
+
+Menyimpan data pengguna/pegawai yang dapat memegang inventaris.
+
+Field penting:
+
+* name → nama anggota
+* department_id → relasi ke departemen
+* position_id → relasi ke jabatan
+
+Relasi:
+
+* 1 Member dapat memiliki banyak Inventaris
+
+---
+
+### 2. Departments
+
+Menyimpan data departemen perusahaan.
+
+Contoh:
+
+* IT
+* HRD
+* Finance
+
+Relasi:
+
+* 1 Department memiliki banyak Members
+
+---
+
+### 3. Positions
+
+Menyimpan jabatan anggota.
+
+Contoh:
+
+* Staff
+* Supervisor
+* Manager
+
+Relasi:
+
+* 1 Position memiliki banyak Members
+
+---
+
+### 4. Inventories
+
+Menyimpan data barang inventaris perusahaan.
+
+Field penting:
+
+* inventory_code → kode unik barang
+* serial_number → nomor seri perangkat
+* status → kondisi barang
+* member_id → pemilik/peminjam barang
+
+Relasi:
+
+* 1 Inventaris dimiliki oleh 1 Member
+* 1 Inventaris memiliki banyak file lampiran
+
+---
+
+### 5. Inventory Files
+
+Menyimpan file yang berkaitan dengan inventaris.
+
+Contoh:
+
+* Foto barang
+* Invoice pembelian
+* Dokumen garansi
+
+Relasi:
+
+* 1 Inventaris memiliki banyak file (one to many)
+
+---
+
+### Normalisasi Database
+
+Database sudah memenuhi minimal **3rd Normal Form (3NF)**:
+
+* Data departemen dipisah dari member
+* Data jabatan dipisah dari member
+* Data file dipisah dari inventaris
+
+Tujuannya:
+
+* Menghindari redundansi data
+* Mempercepat query
+* Mempermudah maintenance database
+
+
+# ⚙️ Cara Menjalankan Project
+
+## 1. Clone Project
+
+```
+git clone <repository-url>
+cd backend
+```
+
+---
+
+## 2. Install Dependency Backend
+
+```
+composer install
+```
+
+---
+
+## 3. Copy Environment
+
+```
+cp .env.example .env
+```
+
+---
+
+## 4. Generate Key
+
+```
+php artisan key:generate
+```
+
+---
+
+## 5. Setting Database (.env)
+
+Buka `.env` lalu ubah:
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=inventaris_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Buat database baru di phpMyAdmin:
+
+```
+inventaris_db
+```
+
+---
+
+## 6. Setup Database & Seeder
+
+Jalankan perintah berikut:
+
+```
+php artisan migrate:fresh --seed
+```
+
+Perintah ini akan:
+
+* Membuat seluruh tabel database
+* Mengisi data awal (dummy data)
+* Membuat akun login otomatis
+* Mengisi data anggota & inventaris contoh
+* Analytics langsung dapat ditampilkan
+
+> ⚠️ Catatan:
+> `migrate:fresh` akan menghapus seluruh isi database lalu membuat ulang dari awal.
+> Aman digunakan karena project ini menggunakan database baru.
+
+---
+
+### Akun Login Default
+
+Setelah seeder dijalankan, gunakan akun berikut:
+
+```
+Email    : admin@example.com
+Password : password
+```
+
+---
+
+## 7. Storage Link (WAJIB untuk upload file)
+
+```
+php artisan storage:link
+```
+
+---
+
+## 8. Jalankan Backend API
+
+```
+php artisan serve
+```
+
+Backend berjalan di:
+
+```
+http://127.0.0.1:8000
+```
+
+---
+
+# 🌐 Menjalankan Frontend
+
+Masuk ke folder frontend:
+
+```
+cd frontend
+```
+
+## Install Dependency
+
+```
+npm install
+```
+
+## Jalankan Vue
+
+```
+npm run dev
+```
+
+Frontend berjalan di:
+
+```
+http://localhost:5173
+```
+
+---
+## 🌐 URL Aplikasi
+
+Frontend:
+http://localhost:5173
+
+Backend API:
+http://127.0.0.1:8000/api
+
+---
+
+## 📮 Dokumentasi API (Postman)
+
+Dokumentasi API tersedia dalam bentuk **Postman Collection**.
+
+### Cara Menggunakan
+
+1. Download file collection:
+
+```
+postman/Inventory-API.postman_collection.json
+```
+
+2. Buka aplikasi **Postman**
+
+3. Klik **Import**
+
+4. Pilih file:
+
+```
+Inventory-API.postman_collection.json
+```
+
+5. Jalankan request **Login** terlebih dahulu untuk mendapatkan token.
+
+6. Copy token dari response login.
+
+7. Masukkan token ke setiap request pada tab:
+
+Authorization → Bearer Token
+
+```
+Bearer YOUR_TOKEN_HERE
+```
+
+---
+
+### Endpoint Utama
+
+#### Auth
+
+| Method | Endpoint   | Keterangan |
+| ------ | ---------- | ---------- |
+| POST   | /api/login | Login user |
+
+#### Members
+
+| Method | Endpoint          |
+| ------ | ----------------- |
+| GET    | /api/members      |
+| POST   | /api/members      |
+| PUT    | /api/members/{id} |
+| DELETE | /api/members/{id} |
+
+#### Inventories
+
+| Method | Endpoint              |
+| ------ | --------------------- |
+| GET    | /api/inventories      |
+| POST   | /api/inventories      |
+| PUT    | /api/inventories/{id} |
+| DELETE | /api/inventories/{id} |
+
+#### Analytics
+
+| Method | Endpoint       |
+| ------ | -------------- |
+| GET    | /api/analytics |
+
+---
+
+### Upload File Inventaris
+
+Endpoint:
+
+```
+POST /api/inventories
+```
+
+Body:
+
+```
+form-data
+```
+
+Field:
+
+* name (text)
+* type (text)
+* serial_number (text)
+* specification (text)
+* status (text)
+* member_id (number)
+* files[] (file) ← multiple upload
+
+# 🔐 Cara Login
+
+Login melalui halaman:
+
+```
+/login
+```
+
+Setelah login:
+
+* Server memberikan Bearer Token
+* Token otomatis dipakai di semua request API
+
+---
+
+# 📡 API Endpoint
+
+## Auth
+
+| Method | Endpoint   | Fungsi          |
+| ------ | ---------- | --------------- |
+| POST   | /api/login | Login user      |
+| GET    | /api/me    | Ambil data user |
+
+---
+
+## Members
+
+| Method | Endpoint          |
+| ------ | ----------------- |
+| GET    | /api/members      |
+| POST   | /api/members      |
+| PUT    | /api/members/{id} |
+| DELETE | /api/members/{id} |
+
+---
+
+## Inventories
+
+| Method | Endpoint              |
+| ------ | --------------------- |
+| GET    | /api/inventories      |
+| POST   | /api/inventories      |
+| PUT    | /api/inventories/{id} |
+| DELETE | /api/inventories/{id} |
+
+---
+
+## Analytics
+
+| Method | Endpoint       |
+| ------ | -------------- |
+| GET    | /api/analytics |
+
+---
+
+# 🧪 Testing API
+
+Gunakan:
+
+* Postman
+* Import collection (optional)
+
+Header wajib:
+
+```
+Authorization: Bearer {token}
+Accept: application/json
+```
+
+---
+
+# ⚠️ Troubleshooting
+
+Jika data tidak muncul / blank putih:
+
+Jalankan:
+
+```
+php artisan optimize:clear
+```
+
+Lalu refresh:
+
+```
+CTRL + SHIFT + R
+```
+
+---
+
+# 📌 Note
+
+Project ini menggunakan:
+
+* RESTful API
+* Bearer Token Authentication
+* Relational Database
+* SPA Architecture
+* Multiple File Upload
+
+---
+
+# 👨‍💻 Author
+
+Nama : (Chandra Karim)
+Project : Ujian / Technical Test - Management Inventaris
