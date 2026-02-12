@@ -187,6 +187,7 @@ Menampilkan:
 
 ## 🗄️ Struktur Database (ERD Sederhana)
 
+![ERD](https://raw.githubusercontent.com/https://github.com/chandrakarim/Botika-Inventory.git/main/ERD.png)
 ```
 departments
     id
