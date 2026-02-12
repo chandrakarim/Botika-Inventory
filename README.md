@@ -486,7 +486,7 @@ Dokumentasi API tersedia dalam bentuk **Postman Collection**.
 1. Download file collection:
 
 ```
-postman/Inventory-API.postman_collection.json
+postman/Bontika Test.postman_collection
 ```
 
 2. Buka aplikasi **Postman**
@@ -496,7 +496,7 @@ postman/Inventory-API.postman_collection.json
 4. Pilih file:
 
 ```
-Inventory-API.postman_collection.json
+Bontika Test.postman_collection
 ```
 
 5. Jalankan request **Login** terlebih dahulu untuk mendapatkan token.
