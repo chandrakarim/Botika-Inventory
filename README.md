@@ -677,3 +677,12 @@ Project ini menggunakan:
 
 Nama : (Chandra Karim)
 Project : Ujian / Technical Test - Management Inventaris
+---
+## Example Dashboard Analytics
+![Dashboard_Analytics](https://raw.githubusercontent.com/chandrakarim/Botika-Inventory/main/Dashboard_Analytics.png)
+
+## Dashboard Members
+![Dashboard_Members](https://raw.githubusercontent.com/chandrakarim/Botika-Inventory/main/Dashboard_Members.png)
+
+## Dashboard Data Inventory
+![Dashboard_Data_inventory](https://raw.githubusercontent.com/chandrakarim/Botika-Inventory/main/Dashboard_Data_inventory.png)
