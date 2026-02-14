@@ -20,48 +20,6 @@ Project ini dibuat sebagai implementasi:
 
 ---
 
-## ✨ Fitur Utama
-
-### 🔐 Autentikasi
-
-* Login menggunakan Bearer Token (Laravel Sanctum)
-* Setiap request API dilindungi autentikasi
-
-### 👥 Management Anggota
-
-* Tambah anggota
-* Edit anggota
-* Hapus anggota
-* Relasi ke Departemen & Jabatan
-
-### 📦 Management Inventaris
-
-* Tambah inventaris
-* Edit inventaris
-* Hapus inventaris
-* Assign inventaris ke anggota
-* Generate kode inventaris otomatis
-
-### 📎 Upload File Inventaris
-
-* Multiple file upload
-* Upload foto barang
-* Upload invoice/garansi
-* Penyimpanan file menggunakan Laravel Storage
-
-### 📊 Dashboard Analytics
-
-Menampilkan:
-
-* Total inventaris
-* Barang Baik
-* Barang Rusak
-* Barang Dilelang
-* Barang Tidak Dipakai
-* Diagram batang (bar chart)
-
----
-
 ## 🧰 Teknologi yang Digunakan
 
 ### Backend
@@ -119,15 +77,6 @@ Fungsi:
 * Hapus anggota
 * List anggota
 
-Relasi:
-
-```
-Member -> Department
-Member -> Position
-```
-
----
-
 ### 3. Management Inventaris
 
 Fungsi:
@@ -137,14 +86,7 @@ Fungsi:
 * Hapus data inventaris
 * Assign barang ke anggota
 * Upload multiple file (foto/dokumen)
-* Generate kode inventaris otomatis
 
-Relasi:
-
-```
-Inventory -> Member
-Inventory -> InventoryFiles
-```
 
 Status barang:
 
@@ -223,9 +165,11 @@ inventory_files
 ```
 
 Relasi:
+* 1 -> M (satu departments memiliki banyak members)
+* 1 -> M (satu positions memiliki banyak members )
+* 1 -> M (Member memiliki banyak Inventaris)
+* 1 -> M (Satu Inventory memiliki banyak File)
 
-* 1 Member memiliki banyak Inventaris
-* 1 Inventaris memiliki banyak File
 
 ---
 ## 📊 Penjelasan ERD (Entity Relationship Diagram)
@@ -334,13 +278,13 @@ Tujuannya:
 ## 1. Clone Project
 
 ```
-git clone <repository-url>
-cd backend
+git clone https://github.com/chandrakarim/Botika-Inventory.git
+cd Botika-Inventory
 ```
 
 ---
 
-## 2. Install Dependency Backend
+## 2. Install Dependency Botika-Inventory
 
 ```
 composer install
@@ -486,7 +430,7 @@ Dokumentasi API tersedia dalam bentuk **Postman Collection**.
 1. Download file collection:
 
 ```
-postman/Bontika Test.postman_collection
+Postman/Bontika Test.postman_collection
 ```
 
 2. Buka aplikasi **Postman**
@@ -681,8 +625,8 @@ Project : Ujian / Technical Test - Management Inventaris
 ## Example Dashboard Analytics
 ![Dashboard_Analytics](https://raw.githubusercontent.com/chandrakarim/Botika-Inventory/main/Dashboard_Analytics.png)
 
-## Dashboard Members
+## Example Dashboard Members
 ![Dashboard_Members](https://raw.githubusercontent.com/chandrakarim/Botika-Inventory/main/Dashboard_Members.png)
 
-## Dashboard Data Inventory
+## Example Dashboard Data Inventory
 ![Dashboard_Data_inventory](https://raw.githubusercontent.com/chandrakarim/Botika-Inventory/main/Dashboard_Data_inventory.png)
